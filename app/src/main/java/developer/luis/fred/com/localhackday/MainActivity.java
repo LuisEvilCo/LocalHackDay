@@ -1,5 +1,6 @@
 package developer.luis.fred.com.localhackday;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -11,9 +12,15 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import java.io.IOException;
+import java.sql.SQLClientInfoException;
+
+import Database.DBHelper;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
 
@@ -41,6 +48,20 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
         /*MainActivityFragment firstFragment = new MainActivityFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, firstFragment).commit();*/
+test();
+    }
+
+    public void test(){
+        DBHelper obj_helper = null;
+        SQLiteDatabase obj_sql = null;
+        obj_helper = new DBHelper(this);
+        try {
+            obj_sql = obj_helper.loadDataBase(this,obj_helper);
+            String regreso = obj_helper.getGrupo(obj_sql);
+            Log.d("************************************" , regreso + "");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void UiInitialization (){
