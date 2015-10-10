@@ -23,7 +23,8 @@ import java.sql.SQLClientInfoException;
 import Database.DBHelper;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
-
+    DBHelper obj_helper;
+    SQLiteDatabase obj_sql;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,17 +49,45 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
         /*MainActivityFragment firstFragment = new MainActivityFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, firstFragment).commit();*/
-test();
+        test();
+        testProfesor();
+        testLunes();
     }
 
     public void test(){
-        DBHelper obj_helper = null;
-        SQLiteDatabase obj_sql = null;
+        obj_helper = null;
+        obj_sql = null;
         obj_helper = new DBHelper(this);
         try {
             obj_sql = obj_helper.loadDataBase(this,obj_helper);
             String regreso = obj_helper.getGrupo(obj_sql);
-            Log.d("************************************" , regreso + "");
+            Log.d("1CM12" , regreso + "");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testProfesor(){
+        obj_helper = null;
+        obj_sql = null;
+        obj_helper = new DBHelper(this);
+        try {
+            obj_sql = obj_helper.loadDataBase(this,obj_helper);
+            String regreso = obj_helper.getProfesor(obj_sql);
+            Log.d("Gume" , regreso + "");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testLunes(){
+        obj_helper = null;
+        obj_sql = null;
+        obj_helper = new DBHelper(this);
+        try {
+            obj_sql = obj_helper.loadDataBase(this,obj_helper);
+            String regreso = obj_helper.getLunes(obj_sql);
+            Log.d("12:00 1:30" , regreso + "");
         } catch (IOException e) {
             e.printStackTrace();
         }
