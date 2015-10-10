@@ -28,10 +28,13 @@ public class LocationFragment extends   MainActivityFragment  {
         View_LocationFragment = inflater.inflate(R.layout.locationfragment, container, false);
         Frag1 = new MainActivityFragment();
         UiInitialization();
-        DrawMarker(1,50,100);
+        map();
         return View_LocationFragment;
     }
 
+    private void map(){
+        DrawMarker(1,50,500);//1102
+    }
     private void DrawMarker (int floor_to_mark, float x_position, float y_position){
         switch (floor_to_mark){
             case 1:{

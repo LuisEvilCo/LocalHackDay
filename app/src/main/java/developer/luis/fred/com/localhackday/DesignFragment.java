@@ -36,7 +36,11 @@ public class DesignFragment extends Fragment {
                 FragmentTwo fg2 = new FragmentTwo();
                 return  fg2.onCreateView(inflater, container, savedInstanceState); /// oncreated view fragmento con lay aut tab metodo que ecoba un numero entero de salon cuadriti ensima dek mapa ubicacion locationfragmentn
             }
-            case 1:{
+            //case 1:
+                //LocationFragment lcfg = new LocationFragment();
+                //return lcfg.onCreateView(inflater, container, savedInstanceState);
+
+            case 2:{
                 LocationFragment lcfg = new LocationFragment();
                 return lcfg.onCreateView(inflater, container, savedInstanceState);
             }
