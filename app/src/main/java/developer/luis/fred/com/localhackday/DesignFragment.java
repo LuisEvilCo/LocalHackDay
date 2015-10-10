@@ -33,17 +33,15 @@ public class DesignFragment extends Fragment {
         int tabPosition = args.getInt(TAB_POSITION);
         switch (tabPosition){
             case 0:{
-                FragmentTwo fg2 = new FragmentTwo();
-                return  fg2.onCreateView(inflater, container, savedInstanceState); /// oncreated view fragmento con lay aut tab metodo que ecoba un numero entero de salon cuadriti ensima dek mapa ubicacion locationfragmentn
+                CustomListView_Fragment Schedule = new CustomListView_Fragment();
+                return  Schedule.onCreateView(inflater, container, savedInstanceState);
             }
-            //case 1:
-                //LocationFragment lcfg = new LocationFragment();
-                //return lcfg.onCreateView(inflater, container, savedInstanceState);
 
-            case 2:{
+            case 1:{
                 LocationFragment lcfg = new LocationFragment();
                 return lcfg.onCreateView(inflater, container, savedInstanceState);
             }
+
             default:{
                 TextView tv = new TextView(getActivity());
                 tv.setGravity(Gravity.CENTER);

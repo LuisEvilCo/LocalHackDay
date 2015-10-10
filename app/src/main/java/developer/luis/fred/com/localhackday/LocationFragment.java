@@ -1,18 +1,15 @@
 package developer.luis.fred.com.localhackday;
-
+//http://www.androidhub4you.com/2013/09/dynamic-list-view-demo-in-android.html
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 public class LocationFragment extends   MainActivityFragment  {
 
-    private ImageView ima;
     private View View_LocationFragment;
     private ImageView Circle_one, Circle_two, Circle_tree;
-    MainActivityFragment Frag1;
 
 
     public LocationFragment() {
@@ -26,7 +23,6 @@ public class LocationFragment extends   MainActivityFragment  {
     //@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View_LocationFragment = inflater.inflate(R.layout.locationfragment, container, false);
-        Frag1 = new MainActivityFragment();
         UiInitialization();
         map();
         return View_LocationFragment;
@@ -35,6 +31,7 @@ public class LocationFragment extends   MainActivityFragment  {
     private void map(){
         DrawMarker(1,50,500);//1102
     }
+
     private void DrawMarker (int floor_to_mark, float x_position, float y_position){
         switch (floor_to_mark){
             case 1:{

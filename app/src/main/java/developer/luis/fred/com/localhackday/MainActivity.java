@@ -1,5 +1,6 @@
 package developer.luis.fred.com.localhackday;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -23,9 +24,11 @@ import java.sql.SQLClientInfoException;
 import Database.DBHelper;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
+   public static Context globalContext = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        globalContext = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         UiInitialization();
@@ -48,12 +51,12 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
         /*MainActivityFragment firstFragment = new MainActivityFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, firstFragment).commit();*/
-test();
+        test();
     }
 
     public void test(){
-        DBHelper obj_helper = null;
-        SQLiteDatabase obj_sql = null;
+        DBHelper obj_helper;
+        SQLiteDatabase obj_sql;
         obj_helper = new DBHelper(this);
         try {
             obj_sql = obj_helper.loadDataBase(this,obj_helper);
