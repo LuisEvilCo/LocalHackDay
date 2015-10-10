@@ -1,22 +1,59 @@
+<RelativeLayout
+    android:id="@+id/relativeLayout2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:scaleType="fitXY"
+        android:longClickable="false"
+        android:adjustViewBounds="true"
+        android:src="@drawable/mapa_mini"
+        android:id="@+id/imgmode32"
+        android:maxHeight="180dp"
+        android:maxWidth="280dp"/>
+    <ImageView
+        android:visibility="invisible"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/circle_1"
+        android:id="@+id/floor1"
+        android:maxHeight="180dp"
+        android:maxWidth="140dp"/>
+    <ImageView
+        android:visibility="invisible"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/circle_2"
+        android:id="@+id/floor2"
+        android:maxHeight="180dp"
+        android:maxWidth="140dp"/>
+    <ImageView
+        android:visibility="invisible"
+        android:paddingTop="50dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/circle_3"
+        android:id="@+id/floor3"
+        android:maxHeight="180dp"
+        android:maxWidth="140dp"/>
+</RelativeLayout>
+
+<!--
+
+
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/location"
-        android:id="@+id/txt1lcfg"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText2"
-        android:layout_gravity="center_horizontal" />
 
     <ImageView
         android:layout_width="300dp"
@@ -26,3 +63,5 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/mapa_mini" />
 </LinearLayout>
+
+-->

@@ -1,32 +1,19 @@
 package developer.luis.fred.com.localhackday;
 
-import android.app.Activity;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.Bundle;
-import android.view.Display;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.widget.Toast;
 
-public class LocationFragment extends  Activity {
+public class LocationFragment extends   MainActivityFragment  {
 
     private ImageView ima;
     private View View_LocationFragment;
+    private ImageView Circle_one, Circle_two, Circle_tree;
     MainActivityFragment Frag1;
-    Bitmap bitmap;
-    Paint paint;
-    Canvas canvas;
-    float downx, downy, movex, movey, upx, upy=0;
-    //private String imagename = "MapaEscom";
+
 
     public LocationFragment() {
     }
@@ -40,41 +27,54 @@ public class LocationFragment extends  Activity {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View_LocationFragment = inflater.inflate(R.layout.locationfragment, container, false);
         Frag1 = new MainActivityFragment();
-
-       // ima =(ImageView)findViewById(R.id.imageView);
-/*
-        Display dis = getWindowManager().getDefaultDisplay();
-        float dw =dis.getHeight();
-        float dh= dis.getHeight();
-        bitmap= Bitmap.createBitmap((int)dw, (int)dh, Bitmap.Config.ARGB_8888);
-        canvas= new Canvas(bitmap);
-        paint= new Paint();
-        paint.setColor(Color.BLUE);
-        paint.setShadowLayer(5, 2, 2, Color.BLUE);
-        ima.setImageBitmap(bitmap);
-        ima.setOnTouchListener((View.OnTouchListener) this);
-*/
+        UiInitialization();
+        DrawMarker(1,50,100);
         return View_LocationFragment;
     }
 
-   /* //@Override
-    public boolean onTouch(View arg0, MotionEvent arg1){
-        switch (arg1.getAction()){
-            case MotionEvent.ACTION_DOWN:
-                downx=arg1.getX();
-                downy=arg1.getY();
+    private void DrawMarker (int floor_to_mark, float x_position, float y_position){
+        switch (floor_to_mark){
+            case 1:{
+                Circle_one.setX(x_position);
+                Circle_one.setY(y_position);
+                Circle_one.setVisibility(View.VISIBLE);
                 break;
-            case MotionEvent.ACTION_MOVE:
-                movex =arg1.getX();
-                movey = arg1.getY();
+            }
+            case 2:{
+                Circle_two.setX(x_position);
+                Circle_two.setY(y_position);
+                Circle_two.setVisibility(View.VISIBLE);
                 break;
-            case MotionEvent.ACTION_UP:
-                upx = arg1.getX();
-                upy = arg1.getY();
-                canvas.drawRect(downx,downy,upx,upy,paint);
-                ima.invalidate();
+            }
+            case 3:{
+                Circle_tree.setX(x_position);
+                Circle_tree.setY(y_position);
+                Circle_tree.setVisibility(View.VISIBLE);
                 break;
+            }
+            default:{
+                break;
+            }
         }
-        return true;
-    }*/
+    }
+
+    private void UiInitialization(){
+        Circle_one = (ImageView) View_LocationFragment.findViewById(R.id.floor1);
+        Circle_one.setOnClickListener(this);
+        Circle_two = (ImageView) View_LocationFragment.findViewById(R.id.floor2);
+        Circle_two.setOnClickListener(this);
+        Circle_tree = (ImageView) View_LocationFragment.findViewById(R.id.floor3);
+        Circle_tree.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            default:{
+                //Toast.makeText(getContext(), "Fuck Yeah", Toast.LENGTH_LONG).show();
+                break;
+            }
+        }
+    }
+
 }
