@@ -35,7 +35,6 @@
         android:maxWidth="140dp"/>
     <ImageView
         android:visibility="invisible"
-        android:paddingTop="50dp"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:adjustViewBounds="true"

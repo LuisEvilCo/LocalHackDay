@@ -1,5 +1,6 @@
 package developer.luis.fred.com.localhackday;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -23,10 +24,11 @@ import java.sql.SQLClientInfoException;
 import Database.DBHelper;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
-    DBHelper obj_helper;
-    SQLiteDatabase obj_sql;
+   public static Context globalContext = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        globalContext = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         UiInitialization();
@@ -50,44 +52,16 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         /*MainActivityFragment firstFragment = new MainActivityFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, firstFragment).commit();*/
         test();
-        testProfesor();
-        testLunes();
     }
 
     public void test(){
-        obj_helper = null;
-        obj_sql = null;
+        DBHelper obj_helper;
+        SQLiteDatabase obj_sql;
         obj_helper = new DBHelper(this);
         try {
             obj_sql = obj_helper.loadDataBase(this,obj_helper);
             String regreso = obj_helper.getGrupo(obj_sql);
-            Log.d("1CM12" , regreso + "");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void testProfesor(){
-        obj_helper = null;
-        obj_sql = null;
-        obj_helper = new DBHelper(this);
-        try {
-            obj_sql = obj_helper.loadDataBase(this,obj_helper);
-            String regreso = obj_helper.getProfesor(obj_sql);
-            Log.d("Gume" , regreso + "");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void testLunes(){
-        obj_helper = null;
-        obj_sql = null;
-        obj_helper = new DBHelper(this);
-        try {
-            obj_sql = obj_helper.loadDataBase(this,obj_helper);
-            String regreso = obj_helper.getLunes(obj_sql);
-            Log.d("12:00 1:30" , regreso + "");
+            Log.d("************************************" , regreso + "");
         } catch (IOException e) {
             e.printStackTrace();
         }
