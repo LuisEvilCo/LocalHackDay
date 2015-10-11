@@ -4,13 +4,14 @@
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <ImageView
+        android:padding="15dp"
         android:layout_height="fill_parent"
         android:layout_width="fill_parent"
         android:scaleType="fitXY"
         android:longClickable="false"
         android:adjustViewBounds="true"
         android:src="@drawable/mapa_mini"
-        android:id="@+id/imgmode32"
+        android:id="@+id/map"
         android:maxHeight="180dp"
         android:maxWidth="280dp"/>
     <ImageView
