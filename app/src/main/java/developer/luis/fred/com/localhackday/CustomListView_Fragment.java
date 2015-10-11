@@ -4,15 +4,17 @@ package developer.luis.fred.com.localhackday;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-
-public class CustomListView_Fragment extends Fragment {
+public class CustomListView_Fragment extends Fragment implements AdapterView.OnItemClickListener {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -35,8 +37,38 @@ public class CustomListView_Fragment extends Fragment {
         return View_CustomListView_Fragment;
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        switch (position){
+            case 0:{
+                Snackbar.make(view, "No hay tarea, descansa", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                break;
+            }
+            case 1:{
+                Snackbar.make(view, "No hay tarea, descansa", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                break;
+            }
+            case 2:{
+                Snackbar.make(view, "No hay tarea, descansa", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                break;
+            }
+            case 3:{
+                Snackbar.make(view, "Peligro examen !!!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                break;
+            }
+            case 4:{
+                Snackbar.make(view, "Tarea pendiente", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                break;
+            }
+            default:{
+                Snackbar.make(view, "Click On List", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                break;
+            }
+        }
+    }
+
     private void UiInitialization(){
-        String Monday[]={"Lunes","Fred se la come"};
+        String Monday[]={"Lunes"};
         String Tuesday[]={"Martes"};
         String Wednesday[]={"Miercoles"};
         String Thursday[]={"Jueves"};
@@ -53,6 +85,7 @@ public class CustomListView_Fragment extends Fragment {
         adapter = new CustomImageAdapter(MainActivity.globalContext, R.layout.list, imageArry);
         ListView dataList = (ListView) View_CustomListView_Fragment.findViewById(R.id.list);
         dataList.setAdapter(adapter);
+        dataList.setOnItemClickListener(this);
 
     }
 
