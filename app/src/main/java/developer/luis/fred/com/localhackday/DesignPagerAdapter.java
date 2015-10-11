@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 class DesignPagerAdapter extends FragmentStatePagerAdapter {
-
     public DesignPagerAdapter(FragmentManager fm) {
         super(fm);
     }
@@ -24,14 +23,14 @@ class DesignPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position){
-            case 1:{
-                return "ESCOM";
+            case 0:{
+                return "Horario";
             }
-            case 2:{
-                return "MAPA";
+            case 1:{
+                return  "Mapa";
             }
             default:{
-                return "Profesor " + position;
+                return "Coming Soon " + position;
             }
         }
     }

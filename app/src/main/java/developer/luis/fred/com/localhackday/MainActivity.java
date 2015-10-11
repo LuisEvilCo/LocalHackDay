@@ -1,5 +1,6 @@
 package developer.luis.fred.com.localhackday;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -7,7 +8,6 @@ import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,15 +23,17 @@ import java.sql.SQLClientInfoException;
 import Database.DBHelper;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
+   public static Context globalContext = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        globalContext = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         UiInitialization();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
+        //ActionBar actionBar = getSupportActionBar();
 
         DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.open,R.string.close);
@@ -48,17 +50,17 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
         /*MainActivityFragment firstFragment = new MainActivityFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, firstFragment).commit();*/
-test();
+        test();
     }
 
     public void test(){
-        DBHelper obj_helper = null;
-        SQLiteDatabase obj_sql = null;
+        DBHelper obj_helper;
+        SQLiteDatabase obj_sql;
         obj_helper = new DBHelper(this);
         try {
             obj_sql = obj_helper.loadDataBase(this,obj_helper);
             String regreso = obj_helper.getGrupo(obj_sql);
-            Log.d("************************************" , regreso + "");
+            Log.d("**********************" , regreso + "");
         } catch (IOException e) {
             e.printStackTrace();
         }

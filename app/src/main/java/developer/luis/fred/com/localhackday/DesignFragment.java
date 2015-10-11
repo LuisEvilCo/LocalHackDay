@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DesignFragment extends Fragment {
@@ -33,22 +34,22 @@ public class DesignFragment extends Fragment {
         int tabPosition = args.getInt(TAB_POSITION);
         switch (tabPosition){
             case 0:{
-                FragmentTwo fg2 = new FragmentTwo();
-                return  fg2.onCreateView(inflater, container, savedInstanceState); /// oncreated view fragmento con lay aut tab metodo que ecoba un numero entero de salon cuadriti ensima dek mapa ubicacion locationfragmentn
+                CustomListView_Fragment Schedule = new CustomListView_Fragment();
+                return  Schedule.onCreateView(inflater, container, savedInstanceState);
             }
-            //case 1:
-                //LocationFragment lcfg = new LocationFragment();
-                //return lcfg.onCreateView(inflater, container, savedInstanceState);
 
-            case 2:{
+            case 1:{
                 LocationFragment lcfg = new LocationFragment();
                 return lcfg.onCreateView(inflater, container, savedInstanceState);
             }
+
             default:{
+                ImageView c_soon = new ImageView(getActivity());
+                c_soon.setImageResource(R.drawable.coming_soon_pic);
                 TextView tv = new TextView(getActivity());
                 tv.setGravity(Gravity.CENTER);
                 tv.setText("Text in Tab #" + tabPosition);
-                return tv;
+                return c_soon;
             }
         }
     }

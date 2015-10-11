@@ -145,13 +145,154 @@ public class DBHelper extends SQLiteOpenHelper {
         return db;
     }
 
+    /* Inserta en la BDlITE la informacion de horario */
+
+    public boolean sethorario(SQLiteDatabase bd, String grupo, String materia, String profesor, String lunes, String martes, String miercoles, String jueves, String viernes){
+        Time now = new Time();
+        now.setToNow();
+        String date = Long.toString(now.toMillis(false));
+        try{
+            if(deletehorario(bd)){
+                bd.execSQL("insert into horario (horario_materia, horario_profesor, horario_lunes, horario_martes, horario_miercoles, horario_jueves, horario_viernes ) values ('" + grupo + "','" + materia + "','" + profesor + "','" + lunes + "','" + martes + "','" + miercoles + "','" + jueves + "','" + viernes + "');");
+                Log.d("***********","Insertando en base de datos");
+                return true;
+            }
+            Log.d("*****FALLA******","No se insertó en base de datos");
+            return false;
+        }catch(Exception e){
+            Log.d("******FALLA****", "Insertando en base de datos");
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean deletehorario(SQLiteDatabase bd){
+        try{
+            bd.execSQL("delete from horario");
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
+
+    public String getGrupo(SQLiteDatabase bd){
+        Cursor c = null;
+        String json = null;
+        c = bd.rawQuery("select * from horario", null); //name of db
+        if(c!=null && c.getCount()>0){
+            c.moveToFirst();
+            json = c.getString(c.getColumnIndex("infractions_json"));
+        }
+        c.close();
+        return json;
+    }
+
+    public String getMateria(SQLiteDatabase bd){
+
+        Cursor c = null;
+        String  materia= null;
+
+        c = bd.rawQuery("select * from horario", null);
+        if(c!=null && c.getCount()>0){
+            c.moveToFirst();
+            materia = c.getString(c.getColumnIndex("horario_materia"));
+        }
+        c.close();
+        return materia;
+    }
+
+    public String getProfesor(SQLiteDatabase bd){
+
+        Cursor c = null;
+        String  profesor= null;
+
+        c = bd.rawQuery("select * from horario", null);
+        if(c!=null && c.getCount()>0){
+            c.moveToFirst();
+            profesor = c.getString(c.getColumnIndex("horario_profesor"));
+        }
+        c.close();
+        return profesor;
+    }
+
+    public String getLunes(SQLiteDatabase bd){
+
+        Cursor c = null;
+        String  lunes= null;
+
+        c = bd.rawQuery("select * from horario", null);
+        if(c!=null && c.getCount()>0){
+            c.moveToFirst();
+            lunes = c.getString(c.getColumnIndex("horario_lunes"));
+        }
+        c.close();
+        return lunes;
+    }
+
+    public String getMartes(SQLiteDatabase bd){
+
+        Cursor c = null;
+        String  martes= null;
+
+        c = bd.rawQuery("select * from horario", null);
+        if(c!=null && c.getCount()>0){
+            c.moveToFirst();
+            martes = c.getString(c.getColumnIndex("horario_martes"));
+        }
+        c.close();
+        return martes;
+    }
+
+    public String getMiercoles(SQLiteDatabase bd){
+
+        Cursor c = null;
+        String  miercoles= null;
+
+        c = bd.rawQuery("select * from horario", null);
+        if(c!=null && c.getCount()>0){
+            c.moveToFirst();
+            miercoles = c.getString(c.getColumnIndex("horario_miercoles"));
+        }
+        c.close();
+        return miercoles;
+    }
+
+    public String getJueves(SQLiteDatabase bd){
+
+        Cursor c = null;
+        String  jueves= null;
+
+        c = bd.rawQuery("select * from horario", null);
+        if(c!=null && c.getCount()>0){
+            c.moveToFirst();
+            jueves = c.getString(c.getColumnIndex("horario_jueves"));
+        }
+        c.close();
+        return jueves;
+    }
+
+    public String getViernes(SQLiteDatabase bd){
+
+        Cursor c = null;
+        String  viernes= null;
+
+        c = bd.rawQuery("select * from horario", null);
+        if(c!=null && c.getCount()>0){
+            c.moveToFirst();
+            viernes = c.getString(c.getColumnIndex("horario_virnes"));
+        }
+        c.close();
+        return viernes;
+    }
+
     /**
      * inserta en la BDLite la informacion de un viaje
-     * @param bd
-     * @param placa
+    // * @param bd
+     //* @param placa
      * @return
      */
-    public boolean setCops(SQLiteDatabase bd,String placa){
+
+    /*public boolean setCops(SQLiteDatabase bd,String placa){
         Time now = new Time();
         now.setToNow();
         String date = Long.toString(now.toMillis(false));
@@ -168,23 +309,14 @@ public class DBHelper extends SQLiteOpenHelper {
             e.printStackTrace();
             return false;
         }
-    }
-
-
-    public boolean deleteCops(SQLiteDatabase bd){
-        try{
-            bd.execSQL("delete from cops");
-            return true;
-        }catch(Exception e){
-            return false;
-        }
-    }
+    }*/
 
     /**
      * Regresa el Json de policias
-     * @param bd
+  //   * @param bd
      * @return
      */
+ /*
     public String getPolicias(SQLiteDatabase bd){
         Cursor c = null;
         String json = null;
@@ -196,15 +328,14 @@ public class DBHelper extends SQLiteOpenHelper {
         c.close();
         return json;
     }
-
-
-
+*/
     /**
      * inserta en la BDLite la informacion de un viaje
-     * @param bd
-     * @param placa
+    // * @param bd
+  //   * @param placa
      * @return
      */
+ /*
     public boolean setInfractions(SQLiteDatabase bd,String placa){
         Time now = new Time();
         now.setToNow();
@@ -239,6 +370,7 @@ public class DBHelper extends SQLiteOpenHelper {
      * @param bd
      * @return
      */
+   /*
     public String getInfractions(SQLiteDatabase bd){
         Cursor c = null;
         String json = null;
@@ -251,17 +383,5 @@ public class DBHelper extends SQLiteOpenHelper {
         return json;
     }
 
-    public String getGrupo(SQLiteDatabase bd){
-        Cursor c = null;
-        String json = null;
-        c = bd.rawQuery("select * from horario", null); //name of db
-        if(c!=null && c.getCount()>0){
-            c.moveToFirst();
-            json = c.getString(c.getColumnIndex("infractions_json"));
-        }
-        c.close();
-        return json;
-    }
-
-
+*/
 }
