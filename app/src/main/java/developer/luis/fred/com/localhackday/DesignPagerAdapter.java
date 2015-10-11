@@ -30,7 +30,7 @@ class DesignPagerAdapter extends FragmentStatePagerAdapter {
                 return  "Mapa";
             }
             default:{
-                return "Profesor " + position;
+                return "Coming Soon " + position;
             }
         }
     }

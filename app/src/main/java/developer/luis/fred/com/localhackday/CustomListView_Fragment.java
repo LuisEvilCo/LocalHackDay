@@ -43,11 +43,11 @@ public class CustomListView_Fragment extends Fragment {
         String Friday[]={"Viernes"};
 
 
-        imageArry.add(new Item(R.drawable.ic_attachment, Monday));
-        imageArry.add(new Item(R.drawable.ic_attachment, Tuesday));
-        imageArry.add(new Item(R.drawable.ic_attachment, Wednesday));
-        imageArry.add(new Item(R.drawable.ic_attachment, Thursday));
-        imageArry.add(new Item(R.drawable.ic_attachment, Friday));
+        imageArry.add(new Item(R.drawable.ic_done_black_24dp, Monday));
+        imageArry.add(new Item(R.drawable.ic_done_black_24dp, Tuesday));
+        imageArry.add(new Item(R.drawable.ic_done_black_24dp, Wednesday));
+        imageArry.add(new Item(R.drawable.ic_highlight_off_black_24dp, Thursday));
+        imageArry.add(new Item(R.drawable.ic_extension_black_24dp, Friday));
 
         // add data in contact image adapter
         adapter = new CustomImageAdapter(MainActivity.globalContext, R.layout.list, imageArry);

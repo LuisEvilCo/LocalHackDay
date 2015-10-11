@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DesignFragment extends Fragment {
@@ -43,10 +44,12 @@ public class DesignFragment extends Fragment {
             }
 
             default:{
+                ImageView c_soon = new ImageView(getActivity());
+                c_soon.setImageResource(R.drawable.coming_soon_pic);
                 TextView tv = new TextView(getActivity());
                 tv.setGravity(Gravity.CENTER);
                 tv.setText("Text in Tab #" + tabPosition);
-                return tv;
+                return c_soon;
             }
         }
     }
