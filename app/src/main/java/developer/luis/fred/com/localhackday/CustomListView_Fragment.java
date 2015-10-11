@@ -36,13 +36,18 @@ public class CustomListView_Fragment extends Fragment {
     }
 
     private void UiInitialization(){
-        String Video[]={"Video1","Video2"};
-        String Song[]={"Song1","Song2","Song3","Song4"};
-        String Movi[]={"Movi1","Movi2","Movi3","Movi4","Movi5","Movi6","Movi7","Movi8","Movi9"};
+        String Monday[]={"Lunes","Fred se la come"};
+        String Tuesday[]={"Martes"};
+        String Wednesday[]={"Miercoles"};
+        String Thursday[]={"Jueves"};
+        String Friday[]={"Viernes"};
 
-        imageArry.add(new Item(R.drawable.ic_attachment, Video));
-        imageArry.add(new Item(R.drawable.ic_done, Song));
-        imageArry.add(new Item(R.drawable.ic_emoticon, Movi));
+
+        imageArry.add(new Item(R.drawable.ic_attachment, Monday));
+        imageArry.add(new Item(R.drawable.ic_attachment, Tuesday));
+        imageArry.add(new Item(R.drawable.ic_attachment, Wednesday));
+        imageArry.add(new Item(R.drawable.ic_attachment, Thursday));
+        imageArry.add(new Item(R.drawable.ic_attachment, Friday));
 
         // add data in contact image adapter
         adapter = new CustomImageAdapter(MainActivity.globalContext, R.layout.list, imageArry);

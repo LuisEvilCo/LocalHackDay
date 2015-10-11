@@ -8,7 +8,6 @@ import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         UiInitialization();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
+        //ActionBar actionBar = getSupportActionBar();
 
         DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.open,R.string.close);
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         try {
             obj_sql = obj_helper.loadDataBase(this,obj_helper);
             String regreso = obj_helper.getGrupo(obj_sql);
-            Log.d("************************************" , regreso + "");
+            Log.d("**********************" , regreso + "");
         } catch (IOException e) {
             e.printStackTrace();
         }

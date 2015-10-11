@@ -18,4 +18,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="schedule">Horario</string>
     <string name="map">Mapa</string>
+    <string name="monday">Lunes</string>
+    <string name="tuesday">Martes</string>
+    <string name="wednesday">Miercoles</string>
+    <string name="thursday">Jueves</string>
+    <string name="friday">Viernes</string>
 </resources>
