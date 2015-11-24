@@ -46,7 +46,7 @@ public class DBHelper extends SQLiteOpenHelper {
         try {
             String myPath = DB_PATH + DB_NAME;
             checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
-
+            //TODO: bug en linea 48 'cannot open file'
 
         } catch (Exception e) {
             Log.i("Base de datos", "falla en checkDataBAse");
@@ -54,7 +54,7 @@ public class DBHelper extends SQLiteOpenHelper {
         if (checkDB != null) {
             checkDB.close();
         }
-        return  (checkDB!= null ? true : false);
+        return  (checkDB != null);
     }
 
     /**

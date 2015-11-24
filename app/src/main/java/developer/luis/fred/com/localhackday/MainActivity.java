@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         try {
             obj_sql = obj_helper.loadDataBase(this,obj_helper);
             String regreso = obj_helper.getGrupo(obj_sql);
-            Log.d("**********************" , regreso + "");
+            Log.d("****************test" , regreso + "");
         } catch (IOException e) {
             e.printStackTrace();
         }
